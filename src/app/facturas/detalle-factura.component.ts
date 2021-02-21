@@ -20,7 +20,10 @@ export class DetalleFacturaComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       const id = +params.get('id');
       this.facturasService.getFactura(id).subscribe(
-        factura => this.factura = factura
+        factura => {
+          this.factura = factura;
+          console.log('obtener factura');
+        }
       );
     });
   }
